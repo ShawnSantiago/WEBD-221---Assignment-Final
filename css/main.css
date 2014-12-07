@@ -1,0 +1,834 @@
+/*
+Title: Final Assignment 
+Description: WEBD 221 - WEB PROGRAMMING 3 - Final Assignment 
+Version: 1.0
+Author: Shawn Santiago
+*/
+/* for clearing any floats <br class=&quot;clearfloat&quot; /> */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* for vertical aligning anything */
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* mixins */
+/* reset styles */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+}
+:focus {
+  outline: 0;
+}
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+section {
+  display: block;
+}
+body,
+h1,
+h2,
+h3,
+p {
+  font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif;
+  margin: 0;
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+/* container - place inside each section or around the entire page depending on your layout */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+}
+/* HEADER */
+nav {
+  height: 90px;
+  width: 100%;
+}
+nav #nav-logo {
+  display: inline;
+  float: left;
+  width: 32.09876543%;
+  margin: 0 0.61728395%;
+  margin-top: 35px;
+}
+nav #nav-logo h1 {
+  margin-left: 10%;
+  font-size: 1.375em;
+  font-weight: 500;
+  color: #f36b47;
+}
+nav #nav-logo h1 > span {
+  color: #4c4c4b;
+}
+nav #nav-menu {
+  display: inline;
+  float: left;
+  width: 65.43209877%;
+  margin: 0 0.61728395%;
+  float: right;
+  margin-top: 35px;
+}
+nav #nav-menu a:hover,
+nav #nav-menu .active {
+  position: relative;
+  border-bottom: 2px solid #f36b47;
+}
+nav #nav-menu a:hover:after,
+nav #nav-menu .active:after,
+nav #nav-menu a:hover:before,
+nav #nav-menu .active:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  margin-top: 2px;
+}
+nav #nav-menu a:hover:after,
+nav #nav-menu .active:after {
+  border-color: rgba(243, 107, 71, 0);
+  border-top-color: #f36b47;
+  border-width: 2px;
+  margin-left: -2px;
+}
+nav #nav-menu a:hover:before,
+nav #nav-menu .active:before {
+  border-color: rgba(243, 107, 71, 0);
+  border-top-color: #f36b47;
+  border-width: 4px;
+  margin-left: -4px;
+}
+nav #nav-menu li {
+  display: inline-block;
+  margin-left: 5%;
+}
+nav #nav-menu li:first-child {
+  margin-left: 10%;
+}
+nav #nav-menu li a {
+  font-size: 0.938em;
+  font-weight: 500;
+  color: #414141;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  height: 24px;
+  padding: 0;
+}
+/*index*/
+.whoarewe {
+  background: url(../images/whoAreWeBG.jpg) center no-repeat;
+  background-size: cover;
+  font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+}
+.whoarewe .cbp-fwslider li > div {
+  display: block;
+  margin: auto;
+  width: 47.53%;
+}
+.whoarewe .cbp-fwslider li > div:first-child {
+  width: 35.27%;
+  margin-top: 17%;
+}
+.whoarewe .cbp-fwslider div > h1 {
+  font-size: 1.625em;
+  font-weight: 500;
+  color: #d8dbdb;
+  display: block;
+  margin: 0 auto;
+  width: 78.06%;
+  padding: 5% 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.whoarewe .cbp-fwslider div > p {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #d8dbdb;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 78.06%;
+  padding: 5% 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.whoarewe #whoarewe-footer {
+  background-color: #f36b47;
+  height: 100px;
+  width: 100%;
+}
+.whoarewe #whoarewe-footer p {
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+}
+.whoarewe #whoarewe-footer p span {
+  font-weight: 500;
+  font-size: 1.250em;
+}
+.features #features-header h1 {
+  font-size: 1.625em;
+  color: #d8dbdb;
+  margin: 50px auto;
+  width: 100px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+.features #features-header p {
+  color: #9d9c9c;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+}
+.features #featurettes {
+  margin-top: 65px;
+  text-align: center;
+}
+.features #featurettes div {
+  display: inline;
+  float: left;
+  width: 23.7654321%;
+  margin: 0 0.61728395%;
+}
+.features #featurettes div i {
+  margin-top: 15px;
+  color: #f36b47;
+}
+.features #featurettes div h1 {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: 400 ;
+}
+.features #featurettes div p {
+  color: #9d9c9c;
+  margin-top: 25px;
+  padding: 15px;
+}
+.recentprojects #recentprojects-header h1 {
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding-top: 50px;
+  width: 200px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+.recentprojects #recentprojects-header p {
+  color: #9d9c9c;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+}
+.recentprojects #recentprojects-gallery {
+  margin: 65px 0 ;
+}
+.recentprojects #recentprojects-gallery div {
+  margin-top: 25px;
+  display: inline;
+  float: left;
+  width: 23.7654321%;
+  margin: 0 0.61728395%;
+}
+.recentprojects #recentprojects-gallery div img {
+  width: 100%;
+}
+.recentprojects #recentprojects-gallery div h1 {
+  margin: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #fe5c32;
+  text-align: right;
+}
+.recentprojects #recentprojects-gallery div p {
+  margin: 5px;
+  margin-right: 10px;
+  font-size: 12px;
+  color: #605f5f;
+  text-align: right;
+}
+.recentprojects #recentprojects-gallery div > div {
+  background-color: #eeeeee;
+  border: 1px solid #e0dddd;
+  display: block;
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+/* Portfolio Page */
+.portfolio-hero {
+  width: 100%;
+  height: 450px;
+  background: url(../images/whoAreWeBG.jpg) center no-repeat;
+  background-size: cover;
+  font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+}
+.portfolio-hero h1 {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 78.06%;
+  font-weight: 400;
+  color: #fff;
+  font-size: 60px;
+  padding: 10px 50px;
+  padding-top: 85px;
+}
+.portfolio-hero h1 span {
+  color: #f36b47;
+}
+.portfolio-hero p {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15px;
+  width: 78.06%;
+  font-weight: 400;
+  color: #D8DBDB;
+  font-size: 16px;
+  padding: 10px 50px;
+}
+#portfolio-header h1 {
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding-top: 50px;
+  width: 100px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+#portfolio-header p {
+  color: #9d9c9c;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+}
+.portfolio {
+  display: block;
+}
+.portfolio #portfolio-nav {
+  height: 50px;
+  padding: 50px 0;
+  padding-bottom: 40px;
+}
+.portfolio #portfolio-nav li {
+  display: inline-block;
+  height: 30px;
+  margin: 5px;
+}
+.portfolio #portfolio-nav li:first-child {
+  padding-left: 0;
+}
+.portfolio #portfolio-nav li a {
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  padding: 5px 15px;
+  color: #9d9c9c;
+}
+.portfolio #portfolio-nav li:hover {
+  border: 1px solid #cac6c6;
+  background-color: #eaeaea;
+  color: #fff;
+  cursor: pointer;
+}
+.portfolio #portfolio-gallery {
+  width: 100%;
+  display: block;
+  margin-bottom: 100px;
+}
+.portfolio #portfolio-gallery li {
+  position: relative;
+  height: 200px ;
+  display: inline;
+  float: left;
+  width: 23.7654321%;
+  margin: 0 0.61728395%;
+  vertical-align: top;
+  margin: 5px;
+}
+.portfolio #portfolio-gallery li img {
+  width: 100%;
+  height: 98%;
+}
+.portfolio #portfolio-gallery li .hide {
+  display: none;
+}
+.portfolio #portfolio-gallery li:hover .show {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 98.5%;
+}
+.portfolio #portfolio-gallery li:hover .show h1 {
+  padding-top: 10px;
+  text-align: center;
+  display: block;
+  font-size: 1.125em;
+  color: #fff;
+  width: 100%;
+}
+.portfolio #portfolio-gallery li:hover .show #eye {
+  opacity: 0.5;
+  margin: 10px auto;
+  margin-top: 20%;
+  height: 2.500em;
+  width: 2.500em;
+  background: url(../images/zoom.png) center no-repeat;
+  background-size: cover;
+}
+/*about*/
+.aboutus #hero {
+  width: 100%;
+  height: 450px;
+  background: url(../images/whoAreWeBG.jpg) center no-repeat;
+  background-size: cover;
+  font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+}
+.aboutus #hero h1 {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 78.06%;
+  font-weight: 400;
+  color: #fff;
+  font-size: 60px;
+  padding: 10px 50px;
+  padding-top: 85px;
+}
+.aboutus #hero h1 span {
+  color: #f36b47;
+}
+.aboutus #hero p {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15px;
+  width: 78.06%;
+  font-weight: 400;
+  color: #D8DBDB;
+  font-size: 16px;
+  padding: 10px 50px;
+}
+.aboutus #header h1 {
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding-top: 50px;
+  width: 115px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+.aboutus #header p {
+  color: #9d9c9c;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.aboutus #team {
+  background-color: #f6f6f6;
+}
+.aboutus #team h1 {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  padding-top: 50px;
+  width: 120px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+.aboutus #team article {
+  display: inline;
+  float: left;
+  width: 23.7654321%;
+  margin: 0 0.61728395%;
+  text-align: center;
+}
+.aboutus #team article p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9d9c9c;
+}
+.aboutus #team article h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #484848;
+}
+.aboutus #team article h4 + p {
+  font-size: 16px;
+  margin-bottom: 5%;
+}
+.aboutus #team article img {
+  border-radius: 50%;
+  margin-bottom: 10%;
+}
+.aboutus #mission article {
+  display: inline;
+  float: left;
+  width: 48.7654321%;
+  margin: 0 0.61728395%;
+}
+.aboutus #mission article img {
+  padding: 5%;
+  width: 100%;
+}
+.aboutus #mission article h2 {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  padding-top: 50px;
+  width: 150px;
+  font-weight: 500;
+  font-size: 26px;
+  color: #484848;
+  border-bottom: 2px solid #f27554;
+}
+.aboutus #mission article p {
+  color: #9d9c9c;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 5%;
+}
+/*--- footer section - put whatever you want here ---*/
+footer {
+  height: 55px;
+  background-color: #f37b5c;
+}
+footer p {
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+@media only screen and (max-width: 950px) and (min-width: 320px) {
+  .container {
+    max-width: 700px;
+  }
+  /*header*/
+  nav #nav-logo {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+  nav #nav-logo h1 {
+    text-align: center;
+  }
+  nav #nav-menu {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  /*index*/
+  .whoarewe .cbp-fwslider div > h1 {
+    font-size: 1em;
+    font-weight: 500;
+    color: #d8dbdb;
+  }
+  .whoarewe .cbp-fwslider div > p {
+    font-size: 0.75em;
+    font-weight: 500;
+    color: #d8dbdb;
+  }
+  .features #featurettes div {
+    display: inline;
+    float: left;
+    width: 48.7654321%;
+    margin: 0 0.61728395%;
+  }
+  /*aboutus*/
+  .aboutus #hero h1 {
+    font-size: 1.75em;
+  }
+  .aboutus #hero p {
+    width: 78.06%;
+  }
+  .aboutus #header h1 {
+    font-size: 1.68em;
+  }
+  .aboutus #header p {
+    font-size: 1em;
+  }
+  .aboutus #team h1 {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding-top: 50px;
+    width: 120px;
+    font-weight: 500;
+    font-size: 26px;
+    color: #484848;
+    border-bottom: 2px solid #f27554;
+  }
+  .aboutus #team article {
+    display: inline;
+    float: left;
+    width: 48.7654321%;
+    margin: 0 0.61728395%;
+    margin-top: 5%;
+  }
+  .aboutus #team article p {
+    margin-top: 1%;
+  }
+  .aboutus #mission article {
+    display: inline;
+    float: left;
+    width: 48.7654321%;
+    margin: 0 0.61728395%;
+  }
+  .aboutus #mission article img {
+    margin-top: 25%;
+  }
+  .aboutus #mission article h2 {
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding-top: 50px;
+    width: 150px;
+    font-weight: 500;
+    font-size: 26px;
+    color: #484848;
+    border-bottom: 2px solid #f27554;
+  }
+  .aboutus #mission article p:last-child {
+    margin-bottom: 15%;
+  }
+  .portfolio #portfolio-nav li:first-child {
+    padding-left: 20%;
+  }
+  .portfolio #portfolio-gallery li {
+    position: relative;
+    height: 200px ;
+    display: inline;
+    float: left;
+    width: 48.7654321%;
+    margin: 0 0.61728395%;
+  }
+}
+@media only screen and (max-width: 700px) and (min-width: 320px) {
+  .container {
+    max-width: 700px;
+  }
+  /*header*/
+  nav {
+    height: 45%;
+  }
+  nav #nav-logo {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+  nav #nav-logo h1 {
+    text-align: center;
+  }
+  nav #nav-menu {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  nav #nav-menu li {
+    display: block;
+    margin-top: 5%;
+    margin-left: 0;
+  }
+  nav #nav-menu li:first-child {
+    margin-left: 0;
+  }
+  /*index*/
+  .whoarewe .cbp-fwslider div > h1 {
+    font-size: 0.5em;
+    font-weight: 500;
+    color: #d8dbdb;
+  }
+  .whoarewe .cbp-fwslider div > p {
+    font-size: 0.25em;
+    font-weight: 500;
+    color: #d8dbdb;
+  }
+  .features #featurettes div {
+    width: 90%;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+  .recentprojects #recentprojects-gallery {
+    margin: 65px 0 ;
+  }
+  .recentprojects #recentprojects-gallery div {
+    width: 90%;
+    margin-top: 25px;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+  /*aboutus*/
+  .aboutus #hero h1 {
+    font-size: 1.75em;
+  }
+  .aboutus #hero p {
+    width: 78.06%;
+  }
+  .aboutus #header h1 {
+    font-size: 1.68em;
+  }
+  .aboutus #header p {
+    font-size: 1em;
+  }
+  .aboutus #team article {
+    width: 90%;
+    display: block;
+    float: none;
+    margin: 0 auto;
+    margin-top: 15%;
+  }
+  .aboutus #mission article {
+    width: 90%;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+  .aboutus #mission article img {
+    margin-top: 5%;
+    width: 90%;
+  }
+  .portfolio-hero h1 {
+    font-size: 2em;
+  }
+  .portfolio #portfolio-nav {
+    height: 150px;
+  }
+  .portfolio #portfolio-nav li {
+    display: block;
+  }
+  .portfolio #portfolio-nav li:first-child {
+    padding-left: 0;
+  }
+  .portfolio #portfolio-nav li a {
+    text-align: center;
+  }
+  .portfolio #portfolio-gallery li {
+    width: 90%;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+}

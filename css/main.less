@@ -1,0 +1,947 @@
+/*
+Title: Final Assignment 
+Description: WEBD 221 - WEB PROGRAMMING 3 - Final Assignment 
+Version: 1.0
+Author: Shawn Santiago
+*/
+
+
+
+// VARIABLES
+
+@main-color: @orange;
+@orange: #f36b47;
+@dark-grey: #414141;
+@light-grey: #9d9c9c;
+@Ubuntu:  'Ubuntu', Tahoma, Verdana, Segoe, sans-serif;
+.font(@font-size,@font-weight,@color) {
+	font-size: @font-size;
+	font-weight: @font-weight;
+	color: @color;
+}
+
+// GRID VALUES
+//------------------------------------
+// Change this values to change the size of the grid
+
+// 960px grid
+@column-width: 115;
+@gutter-width: 20;
+@columns: 12;
+
+// Utility variable — you should never need to modify this
+@gridsystem-width: (@column-width * @columns) + (@gutter-width * @columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+//@total-width: @gridsystem-width;
+@total-width: 100%;
+
+
+/* for clearing any floats <br class=&quot;clearfloat&quot; /> */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* for vertical aligning anything */
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} 
+
+/* mixins */
+
+.column(@x,@columns:@columns) {
+    display: inline;
+    float: left;
+    width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+    margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+
+
+
+
+/* reset styles */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { 
+	margin: 0; padding: 0;  border: 0; outline: 0; font-size: 100%; 
+	vertical-align: baseline; background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+body {	
+
+}
+
+section{
+	display: block;
+}
+
+
+body,h1, h2, h3, p {
+    font-family: @Ubuntu;
+    margin: 0;
+}
+h1 {
+    font-size: 2.4rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.6rem;
+}
+
+
+
+/* container - place inside each section or around the entire page depending on your layout */
+.container {
+	max-width: 1080px;
+	margin: 0 auto;
+	position: relative;
+	height: 100%;
+}
+
+/* HEADER */
+
+nav {
+	height:90px;
+	width: 100%;
+	#nav-logo {
+		.column(4);
+		margin-top: 35px;
+
+		h1{
+			margin-left: 10%;
+			.font(1.375em,500,@main-color)
+			
+
+		}
+
+		h1 > span {
+			color: #4c4c4b;
+		}
+
+	}
+
+	#nav-menu { 
+		.column(8);
+		float: right;
+		margin-top: 35px;
+		a:hover, .active {
+			position: relative;
+			border-bottom: 2px solid @main-color;
+
+			&:after,
+			&:before {
+				top: 100%;
+				left: 50%;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+				margin-top: 2px;
+			}
+
+			&:after{
+  				border-color: rgba(243, 107, 71, 0);
+				border-top-color: @main-color;
+				border-width: 2px;
+				margin-left: -2px;
+			}
+
+			&:before{
+	  			border-color: rgba(243, 107, 71, 0);
+				border-top-color: @main-color;
+				border-width: 4px;
+				margin-left: -4px;	
+			}
+		}
+		
+		li {
+		display: inline-block;
+		margin-left: 5%;
+			&:first-child{
+				margin-left: 10%;
+			}
+			a {
+				.font(0.938em,500,@dark-grey);
+				text-transform: uppercase;
+				text-align: center;
+				display: block;
+				text-decoration: none;
+				height: 24px;
+				padding: 0;
+			}
+		}
+	}
+}
+
+
+/*index*/
+.whoarewe {
+	
+	background:url(../images/whoAreWeBG.jpg) center no-repeat;
+	background-size: cover;
+	font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+
+	.cbp-fwslider {
+		li > div {
+			display: block;
+			margin: auto;
+			width : 47.53%;
+			&:first-child {
+				
+				width :35.27%;
+				margin-top: 17%;
+			}
+		}
+		div > h1 {
+			.font(1.625em,500,#D8DBDB);
+			display: block;
+			margin: 0 auto;
+			width: 78.06%;
+			padding: 5% 10%;
+			background-color: rgba(0, 0, 0, 0.4);
+			}
+		div > p {
+			.font(1.2em,500,#D8DBDB);
+			display: block;
+			margin: 0 auto;
+			margin-top: 15px;
+			width: 78.06%;
+			padding: 5% 10%;
+			background-color: rgba(0, 0, 0, 0.4);
+			}
+		}
+	#whoarewe-footer {
+		background-color: @main-color;
+		height: 100px;
+		width: 100%;
+		p{
+			display: block;
+			color: #fff;
+			text-align: center;
+			font-size: 1em;
+			span{
+				font-weight: 500;
+				font-size:1.250em;
+			}
+		}
+	}
+}
+
+.features {
+	
+	#features-header {
+		h1{
+			.font(1.625em,500,#D8DBDB);
+			margin: 50px auto;
+			width:100px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+		p{
+			color: @light-grey;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+		}
+	}
+
+	#featurettes {
+		margin-top: 65px;
+		text-align: center;
+		div{
+			.column(3);
+			i{
+				margin-top: 15px;
+				color:@main-color;
+			}
+			h1{
+				margin-top: 25px;
+				font-size: 20px;
+				font-weight: 400 ;
+			}
+			p{
+				color:@light-grey;
+				margin-top: 25px;
+				padding:15px;
+			}
+		}
+	}
+}
+
+.recentprojects{
+
+	#recentprojects-header {
+		h1{
+			margin: 0 auto;
+			margin-bottom: 25px;
+			padding-top: 50px;
+			width:200px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+		p{
+			color: @light-grey;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+		}
+	}
+
+	#recentprojects-gallery {
+		margin: 65px 0 ;
+		div {
+
+			margin-top: 25px;
+			.column(3);
+
+			img{
+				width: 100%;
+			}
+
+			h1 {
+				margin: 5px;
+				margin-right: 10px;
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 18px;
+				color:#fe5c32;
+				text-align: right;
+			}
+
+			p{
+				margin: 5px;
+				margin-right: 10px;
+				font-size: 12px;
+				color:#605f5f;
+				text-align: right;
+			}
+
+			& > div {
+				background-color: #eeeeee;
+				border: 1px solid #e0dddd; 
+				display: block;
+				float: none;
+				width: 100%;
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* Portfolio Page */
+
+.portfolio-hero{
+	width: 100%;
+	height: 450px;
+	background:url(../images/whoAreWeBG.jpg) center no-repeat;
+	background-size: cover;
+	font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+	h1 {
+			text-align: center;
+			display: block;
+			margin: 0 auto;
+
+			width: 78.06%;
+			font-weight: 400;
+			color: #fff;
+			font-size:60px;
+			padding: 10px 50px;
+			padding-top: 85px;
+			
+			span{
+				color: @main-color;
+			}
+		}
+
+	p {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			margin-top: 15px;
+			width: 78.06%;
+			font-weight: 400;
+			color: #D8DBDB;
+			font-size:16px;
+			padding: 10px 50px;
+			
+			}
+}
+
+#portfolio-header {
+		h1{
+			margin: 0 auto;
+			margin-bottom: 25px;
+			padding-top: 50px;
+			width:100px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+		p{
+			color: @light-grey;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+		}
+}
+
+
+.portfolio { 
+    display: block;
+  	#portfolio-nav {
+  		// float: left;
+  		height: 50px;
+        padding: 50px 0;
+        padding-bottom: 40px;
+        li {  
+
+            display: inline-block;
+            height: 30px;
+            margin:5px;
+            &:first-child{
+                	padding-left: 0;
+            }
+            a {
+                text-decoration: none;
+				display: block;
+				margin: auto;
+                padding: 5px 15px;
+                color:@light-grey;
+               
+			}
+            &:hover {
+            	border: 1px solid #cac6c6;
+            	background-color: #eaeaea;
+            	color:#fff;
+            	cursor: pointer;
+ 
+        	}
+    	}
+	}
+
+    #portfolio-gallery {
+           width: 100%;
+           display: block;
+           margin-bottom: 100px;
+
+        li {
+            position:relative;
+            height: 200px ;
+            .column(3);
+            vertical-align: top;
+            margin: 5px;
+            
+            img{  
+                width: 100%;
+				height: 98%;
+            }
+
+            .hide {
+                display: none;
+            }
+            &:hover .show {
+               
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 98.5%;
+                h1 {
+                	padding-top: 10px;
+                    text-align: center;
+                    display: block;
+                    font-size:1.125em;  
+                    color: #fff;
+                    width: 100%;
+                }
+   
+                #eye {
+                	opacity: 0.5;
+                    margin: 10px auto;
+                    margin-top: 20%; 
+                    height: 2.500em;
+                    width: 2.500em;
+                    background: url(../images/zoom.png) center no-repeat;
+                    background-size: cover;
+
+                }
+
+            
+            }
+        }
+    }
+}
+
+/*about*/
+
+.aboutus{
+
+	#hero{
+	width: 100%;
+	height: 450px;
+	background:url(../images/whoAreWeBG.jpg) center no-repeat;
+	background-size: cover;
+	font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+	h1 {
+			text-align: center;
+			display: block;
+			margin: 0 auto;
+			width: 78.06%;
+			font-weight: 400;
+			color: #fff;
+			font-size:60px;
+			padding: 10px 50px;
+			padding-top: 85px;
+			
+			span{
+				color: @main-color;
+			}
+		}
+
+	p {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			margin-top: 15px;
+			width: 78.06%;
+			font-weight: 400;
+			color: #D8DBDB;
+			font-size:16px;
+			padding: 10px 50px;
+			
+			}
+	}
+
+	#header {
+		h1{
+			margin: 0 auto;
+			margin-bottom: 25px;
+			padding-top: 50px;
+			width:115px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+		p{
+			color: @light-grey;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: center;
+			margin-bottom: 5%;
+		}
+	}
+
+	#team{
+		background-color: #f6f6f6;
+		h1{
+			margin: 0 auto;
+			margin-bottom: 5%;
+			padding-top: 50px;
+			width:120px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+
+		article{
+			.column(3);
+			text-align: center;
+			p{
+				font-size: 14px;
+				font-weight: 400;
+				color: @light-grey;
+			}
+			h4{
+				font-size: 14px;
+				font-weight: 600;
+				color: #484848;
+				& + p {
+					font-size: 16px;
+					margin-bottom: 5%;
+				}
+			}
+			
+			img{
+				
+				border-radius: 50%;
+				margin-bottom: 10%;
+			}
+		}
+	}
+
+	#mission{
+		article{
+
+			.column(6);
+				
+			
+			img{
+				padding: 5%;
+				width: 100%;
+			}
+
+			h2{
+			margin: 0 auto;
+			margin-bottom: 5%;
+			padding-top: 50px;
+			width:150px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+			}
+			p{
+			color: @light-grey;
+			font-size: 14px;
+			text-align: center;
+			margin-bottom: 5%;
+			}
+		}
+
+	}
+}
+
+
+
+
+/*--- footer section - put whatever you want here ---*/
+footer {
+	height: 55px;
+	background-color: #f37b5c;
+	p{
+		display: block;
+		margin: auto;
+		text-align: center;
+		color:#ffffff;
+		font-size: 14px;
+
+	}
+}
+
+@media only screen and (max-width: 950px) and (min-width: 320px) {
+	.container {
+		max-width: 700px;
+	}
+/*header*/
+	nav {
+	#nav-logo {
+		display: block;
+		float: none;
+		margin: 0 auto;
+		margin-top: 35px;
+		h1{
+			text-align: center;
+		}
+	}
+	#nav-menu { 
+		display: block;
+		float: none;
+		width: 100%;	
+	}
+}
+
+/*index*/
+
+.whoarewe {
+
+	.cbp-fwslider {
+		
+		div > h1 {
+			.font(1em,500,#D8DBDB);
+			}
+		div > p {
+			.font(.750em,500,#D8DBDB);
+			}		
+	}	
+	
+}
+.features {
+	#featurettes {
+		div{
+			.column(6);
+		}
+	}
+}
+
+/*aboutus*/
+
+.aboutus{
+
+	#hero{
+	h1 {
+			font-size:1.75em;
+		}
+
+	p {
+			width: 78.06%;	
+			}
+	}
+
+	#header {
+		h1{
+			font-size: 1.68em;
+			
+		}
+		p{
+			font-size: 1em;
+		}
+	}
+
+	#team{
+		
+		h1{
+			margin: 0 auto;
+			margin-bottom: 5%;
+			padding-top: 50px;
+			width:120px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+		}
+
+		article{
+			.column(6);
+			margin-top: 5%; 
+			p{
+				margin-top: 1%;
+			}
+			
+		}
+	}
+
+	#mission{
+		article{
+
+			.column(6);
+				
+			
+			img{
+				margin-top: 25%;
+			}
+
+			h2{
+			margin: 0 auto;
+			margin-bottom: 5%;
+			padding-top: 50px;
+			width:150px; 
+			font-weight: 500;
+			font-size: 26px;
+			color:#484848;
+			border-bottom: 2px solid #f27554;
+			}
+			p{
+				&:last-child{
+					margin-bottom: 15%;
+				}
+			}
+		}
+	}
+}
+
+.portfolio {    
+  	#portfolio-nav { 		
+        li {  
+			
+            &:first-child{
+                	padding-left: 20%;
+            }
+    	}
+	}
+    #portfolio-gallery {
+        li {
+            position:relative;
+            height: 200px ;
+            .column(6);
+     
+        }
+    }
+}
+
+}
+
+@media only screen and (max-width: 700px) and (min-width: 320px) {
+	.container {
+		max-width: 700px;
+	}
+/*header*/
+	nav {
+		height: 45%;
+	#nav-logo {
+		display: block;
+		float: none;
+		margin: 0 auto;
+		margin-top: 35px;
+		h1{
+			text-align: center;
+		}
+	}
+	#nav-menu { 
+		display: block;
+		float: none;
+		width: 100%;	
+		li {
+		display: block;
+		margin-top: 5%;
+		margin-left:0;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+/*index*/
+
+.whoarewe {
+
+	.cbp-fwslider {
+		
+		div > h1 {
+			.font(.5em,500,#D8DBDB);
+			}
+		div > p {
+			.font(.25em,500,#D8DBDB);
+			}		
+	}	
+	
+}
+.features {
+	#featurettes {
+		div{
+			width: 90%;
+			display: block;
+			float: none;
+			margin: 0 auto;
+		}
+	}
+}
+
+.recentprojects{
+	#recentprojects-gallery {
+		margin: 65px 0 ;
+		div {
+			width: 90%;
+			margin-top: 25px;
+			display: block;
+			float: none;
+			margin: 0 auto;
+
+		}
+	}
+}
+
+
+/*aboutus*/
+
+.aboutus{
+
+	#hero{
+	h1 {
+			font-size:1.75em;
+		}
+
+	p {
+			width: 78.06%;	
+			}
+	}
+
+	#header {
+		h1{
+			font-size: 1.68em;
+			
+		}
+		p{
+			font-size: 1em;
+		}
+	}
+
+	#team{
+
+		article{
+			width: 90%;
+			display: block;
+			float: none;
+			margin: 0 auto;
+			margin-top: 15%; 
+	
+			
+		}
+	}
+
+	#mission{
+		article{
+
+			width: 90%;
+			display: block;
+			float: none;
+			margin: 0 auto;
+				
+			
+			img{
+				margin-top: 5%;
+				width: 90%;
+			}
+		}
+	}
+}
+.portfolio-hero{ 
+	h1 {
+		font-size:2em;	
+	}
+}
+.portfolio { 
+	  
+		
+  	#portfolio-nav {
+  		// float: left;
+  		height: 150px;
+        li {  
+            display: block;
+            &:first-child{
+                	padding-left: 0;
+            }
+            a {
+            	text-align: center
+			}
+
+    	}
+	}
+
+    #portfolio-gallery {
+        li {
+            width: 90%;
+			display: block;
+			float: none;
+			margin: 0 auto;
+        }
+    }
+}
+}
